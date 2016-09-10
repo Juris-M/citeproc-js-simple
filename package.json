@@ -12,10 +12,9 @@
   },
   "author": "Michael McMillan <email@michaelmcmillan.net> (http://michaelmcmillan.net/)",
   "license": "ISC",
-  "dependencies": {
-    "jsdom": "^5.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "mocha": "^2.2.4",
+    "chai": "latest"
   }
 }
