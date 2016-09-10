@@ -18,7 +18,21 @@ Advanced `citeproc-js` features *not* supported include:
 * Automated abbreviation of citation elements
 * HTML citation links
 
-## Setup
+## Setup (from source)
+
+To run from a checkout of the source repository, run the following incantations:
+
+    git clone --recursive https://github.com/Juris-M/citeproc-node-iojs.git
+    cd citeproc-node-iojs
+    npm install
+    npm run test
+
+The test should pass.
+
+
+## Setup (from `npm`)
+
+(note that the code in this repository is not yet reflected in `npm`)
 
 To install via `npm`, use the usual incantation:
 
