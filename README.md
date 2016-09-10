@@ -49,7 +49,7 @@ be invoked to produce a bibliography. Citation data used by the test
 is in the file `test/citations.json`.
 
 For information on the CSL style language, see the [CSL project
-website](https://citationstyles.org). For documentation on the
+website](http://citationstyles.org). For documentation on the
 processor, see the [Citeproc-js
 Manual](http://citeproc-js.readthedocs.io/en/latest).  For an example
 of browser-side dynamic editing of citations, see the [Academic
