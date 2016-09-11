@@ -12,6 +12,8 @@ function Citeproc (preferredLocale, styleDir, styleFile, citations, done) {
     // styleDir
     pathToStyleFile = path.join(styleDir, styleFile);
     
+    // localeIDs global
+    localeIDs = [];
 
     // Constructs the wrapper
     this.construct = function () {
@@ -61,51 +63,9 @@ function Citeproc (preferredLocale, styleDir, styleFile, citations, done) {
         fs.readFile(file, function (err, data) {
             if (err) return done(err);
             style = data.toString();
-            self.sniffLocales(style);
-            return done(); 
+            localeIDs = CSL.getLocaleNames(style, preferredLocale);
+            return done();
         });
-    }
-
-    this.sniffLocales = function() {
-        stylexml = CSL.setupXml(style);
-        
-        localeIDs = ["en-US"];
-
-        this.extendLocaleList(localeIDs, preferredLocale);
-
-        var styleNode = stylexml.getNodesByName(stylexml.dataObj, "style")[0];
-        var defaultLocale = stylexml.getAttributeValue(styleNode, "default-locale");
-        this.extendLocaleList(localeIDs, defaultLocale);
-
-        var nodeNames = ["layout", "if", "else-if", "condition"];
-        for (var i=0,ilen=nodeNames.length;i<ilen;i++) {
-            this.sniffLocaleOnOneNodeName(stylexml, localeIDs, nodeNames[i]);
-        }
-    }
-
-    this.sniffLocaleOnOneNodeName = function(nodeName) {
-        var nodes = stylexml.getNodesByName(stylexml.dataObj, nodeName);
-        for (var i=0,ilen=nodes.length;i<ilen;i++) {
-            var nodeLocales = stylexml.getAttributeValue(nodes[i], "locale");
-            if (nodeLocales) {
-                nodeLocales = nodeLocales.split(/ +/);
-                for (var j=0,jlen=nodeLocales.length;j<jlen;j++) {
-                    this.extendLocaleList(localeIDs, nodeLocales[j]);
-                }
-            }
-        }
-    }
-    
-    this.extendLocaleList = function(localeList, locale) {
-        var forms = ["base", "best"];
-        if (locale) {
-            normalizedLocale = CSL.localeResolve(locale);
-            for (var i=0,ilen=forms.length;i<ilen;i++) {
-                if (normalizedLocale[forms[i]] && localeList.indexOf(normalizedLocale[forms[i]]) === -1) {
-                    localeList.push(normalizedLocale[forms[i]]);
-                }
-            }
-        }
     }
 
     this.loadLocales = function (done) {
