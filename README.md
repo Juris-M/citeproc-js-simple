@@ -1,4 +1,4 @@
-# citeproc-node-iojs
+# citeproc-simple
 
 ## Description
 
