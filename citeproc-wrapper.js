@@ -4,10 +4,8 @@ var CSL = require('./src/citeproc.js').CSL;
 
 function Citeproc (preferredLocale, styleDir, styleFile, citations, done) {
     
-    var basePath = path.normalize('.');
-
     // localeDir (hard-wired)
-    localeDir = path.join(basePath, "locales");
+    localeDir = "locales";
     
     // styleDir
     pathToStyleFile = path.join(styleDir, styleFile);
