@@ -1,4 +1,4 @@
-# citeproc-node-iojs
+# citeproc-simple
 
 ## Description
 
@@ -17,6 +17,8 @@ Advanced `citeproc-js` features *not* supported include:
 * Jurisdiction-dependent legal citations
 * Automated abbreviation of citation elements
 * HTML citation links
+
+This project is updated with each tagged release of [citeproc-js](https://github.com/juris-m/citeproc-js).
 
 ## Setup (from source)
 
@@ -42,17 +44,15 @@ To add the wrapped processor to a project, use `require` in the usual way:
 
     var csl = require('citeproc-node-iojs')
 
-## Usage
+## Further information
 
-The test fixture in the file `test/test.js` shows how the wrapper can
-be invoked to produce a bibliography. Citation data used by the test
-is in the file `test/citations.json`.
-
-For information on the CSL style language, see the [CSL project
-website](http://citationstyles.org). For documentation on the
-processor, see the [Citeproc-js
-Manual](http://citeproc-js.readthedocs.io/en/latest).  For an example
-of browser-side dynamic editing of citations, see the [Academic
-Blogger's
-Toolkit](https://github.com/dsifford/academic-bloggers-toolkit) plugin
-for WordPress by Derek Sifford.
+* The test fixture in the file `test/test.js` shows how the wrapper can
+  be invoked to produce a bibliography. Citation data used by the test
+  is in the file `test/citations.json`.
+* For information on the CSL style language, see the [CSL project
+  website](http://citationstyles.org).
+* For documentation on the
+  processor, see the [Citeproc-js Manual](http://citeproc-js.readthedocs.io/en/latest).
+* For an example of browser-side dynamic editing of citations, see the [Academic
+  Blogger's Toolkit](https://github.com/dsifford/academic-bloggers-toolkit), a 
+  WordPress plugin by Derek Sifford.
